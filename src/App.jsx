@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { API_URL } from './config.js';
 import {
   AlertCircle,
   Check,
@@ -14,7 +15,7 @@ import {
 const emptyForm = { Name: '', Description: '', Price: '', Stock: '0' };
 
 async function request(path, options) {
-  const response = await fetch(`/api/products${path}`, {
+  const response = await fetch(`${API_URL}/products${path}`, {
     ...options,
     headers: { 'Content-Type': 'application/json', ...options?.headers }
   });
